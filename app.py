@@ -9,7 +9,7 @@ import gc
 app = Starlette(debug=False)
 
 sess = gpt2.start_tf_sess(threads=1)
-gpt2.load_gpt2(sess)
+gpt2.load_gpt2(sess, model_name="quora")
 
 # Needed to avoid cross-domain issues
 response_header = {
