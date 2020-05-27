@@ -33,12 +33,15 @@ async def homepage(request):
                              headers=response_header)
 
     text = gpt2.generate(sess,
+                         model_name="quora",
                          length=int(params.get('length', 1023)),
-                         temperature=float(params.get('temperature', 0.7)),
+                         temperature=float(params.get('temperature', 1.0)),
                          top_k=int(params.get('top_k', 0)),
                          top_p=float(params.get('top_p', 0)),
                          prefix=params.get('prefix', '')[:500],
                          truncate=params.get('truncate', None),
+                         nsamples=5,
+                         batch_size=5,
                          include_prefix=str(params.get(
                              'include_prefix', True)).lower() == 'true',
                          return_as_list=True
