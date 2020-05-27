@@ -1,5 +1,5 @@
-tensorflow==1.1.0
+tensorflow==1.14.0
 gpt-2-simple
+starlette
+uvicorn
 ujson
-flask_cors
-flask
