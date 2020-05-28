@@ -9,7 +9,7 @@ import gc
 app = Starlette(debug=False)
 
 sess = gpt2.start_tf_sess(threads=1)
-gpt2.load_gpt2(sess, model_name="quora", model_dir='/storage/models',)
+gpt2.load_gpt2(sess, model_name="quora-73600", model_dir='/storage/models',)
 
 # Needed to avoid cross-domain issues
 response_header = {
@@ -33,7 +33,7 @@ async def homepage(request):
                              headers=response_header)
 
     text = gpt2.generate(sess,
-                         model_name="quora",
+                         model_name="quora-73600",
                          length=int(params.get('length', 1023)),
                          temperature=float(params.get('temperature', 1.0)),
                          top_k=int(params.get('top_k', 0)),
